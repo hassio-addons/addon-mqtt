@@ -7,7 +7,7 @@
 source /usr/lib/hassio-addons/base.sh
 
 # Set config file
-CONFIG='/opt/mosquitto.conf'
+CONFIG='/data/mosquitto.conf'
 
 # Remove config file if it exist
 if hass.file_exists "$CONFIG"; then
@@ -62,12 +62,12 @@ if hass.config.true 'broker.enabled'; then
   # Set username and password for the broker
   if hass.config.has_value 'broker.username' \
       && hass.config.has_value 'broker.password'; then
-    touch /opt/pwfile
-    mosquitto_passwd -b /opt/pwfile "$(hass.config.get 'broker.username')" "$(hass.config.get 'broker.password')"
+    touch /data/pwfile
+    mosquitto_passwd -b /data/pwfile "$(hass.config.get 'broker.username')" "$(hass.config.get 'broker.password')"
   else
     # Remove pefile if it should not be used
-    if hass.file_exists 'rm /opt/pwfile'; then
-        rm rm /opt/pwfile 
+    if hass.file_exists 'rm /data/pwfile'; then
+        rm rm /data/pwfile 
     fi
   fi
 fi

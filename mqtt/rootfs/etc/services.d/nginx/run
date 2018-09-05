@@ -6,5 +6,12 @@
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
 
+if hass.config.false 'web.enabled'; then
+    while true; do
+      hass.log.debug 'Web are not enabled...'
+      exec sleep 86400
+    done
+fi
+
 hass.log.info "Starting NGINX for the MQTT client..."
 exec nginx -g "daemon off;"

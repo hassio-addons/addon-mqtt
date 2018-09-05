@@ -1,0 +1,131 @@
+--- /app/index.html
++++ /app/index.html
+@@ -26,7 +26,7 @@
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width">
+     <title>MQTT Websocket Client</title>
+-
++    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/normalize.css">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/foundation.css">
+@@ -37,8 +37,8 @@
+ 
+ <div id="header">
+     <div>
+-        <a href="http://www.hivemq.com"><img id="headerlogo" src="assets/logo.png"></a>
+-        <span id="headertitle">Websockets Client Showcase</span>
++        <a href="/"><img id="headerlogo" src="assets/logo.png"></a>
++        <span id="headertitle" style="padding: 8px;">MQTT Broker and web client - Community Hass.io Add-on for Home Assistant</span>
+     </div>
+ </div>
+ <div id="content" class="row">
+@@ -62,13 +62,13 @@
+             <div class="row">
+                 <form class="custom">
+                     <div class="large-5 columns">
+-                        <label>Host *</label>
+-                        <input id="urlInput" type="text" value="broker.mqttdashboard.com">
++                        <label>Broker IP or hostname *</label>
++                        <input id="urlInput" type="text" value="Hass.io IP address">
+                     </div>
+ 
+                     <div class="large-1 columns">
+                         <label>Port *</label>
+-                        <input id="portInput" type="text" value="8000"/>
++                        <input id="portInput" type="text" value="1884"/>
+                     </div>
+ 
+                     <div class="large-4 columns">
+@@ -102,21 +102,21 @@
+ 
+                     <div class="large-1 columns">
+                         <label>SSL</label>
+-                        <input id="sslInput" type="checkbox"/>
++                        <input id="sslInput" type="checkbox" %%SSL_VALUE%%/>
+                     </div>
+ 
+-                    <div class="large-2 columns">
++                    <div class="large-2 columns" style="display: none;">
+                         <label>Clean Session</label>
+                         <input class="checky" id="cleanSessionInput" type="checkbox" checked="checked"
+                                disabled="disabled"/>
+                     </div>
+ 
+-                    <div class="large-8 columns">
++                    <div class="large-8 columns" style="display: none;">
+                         <label>Last-Will Topic</label>
+                         <input id="lwTopicInput" type="text"/>
+                     </div>
+ 
+-                    <div class="large-2 columns">
++                    <div class="large-2 columns" style="display: none;">
+                         <label>Last-Will QoS</label>
+                         <select id="lwQosInput">
+                             <option>0</option>
+@@ -125,12 +125,12 @@
+                         </select>
+                     </div>
+ 
+-                    <div class="large-2 columns">
++                    <div class="large-2 columns" style="display: none;">
+                         <label>Last-Will Retain</label>
+                         <input class="checky" id="LWRInput" type="checkbox"/>
+                     </div>
+ 
+-                    <div class="large-12 columns">
++                    <div class="large-12 columns" style="display: none;">
+                         <label>Last-Will Messsage</label>
+                         <textarea id="LWMInput"></textarea>
+                     </div>
+@@ -161,7 +161,7 @@
+                         <div class="row">
+                             <div class="large-6 columns">
+                                 <label>Topic</label>
+-                                <input id="publishTopic" type="text" value="testtopic/1">
++                                <input id="publishTopic" type="text" value="test_topic/">
+                             </div>
+                             <div class="large-2 columns">
+                                 <label for="publishQoSInput">QoS</label>
+@@ -272,7 +272,7 @@
+                                 <div class="row large-12 columns">
+                                     <div class="large-12 columns">
+                                         <label>Topic</label>
+-                                        <input id="subscribeTopic" type="text" value="testtopic/#">
++                                        <input id="subscribeTopic" type="text" value="#">
+                                     </div>
+                                 </div>
+                             </form>
+@@ -305,21 +305,12 @@
+ <script src="config.js"></script>
+ 
+ <script>
+-
+-    function randomString(length) {
+-        var text = "";
+-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+-        for (var i = 0; i < length; i++)
+-            text += possible.charAt(Math.floor(Math.random() * possible.length));
+-        return text;
+-    }
+-
+     $(document).foundation();
+     $(document).ready(function () {
+ 
+         $('#urlInput').val(websocketserver);
+         $('#portInput').val(websocketport);
+-        $('#clientIdInput').val('clientId-' + randomString(10));
++        $('#clientIdInput').val('hassio-mqtt-client');
+ 
+         $('#colorChooser').minicolors();
+ 
+@@ -335,5 +326,9 @@
+         websocketclient.render.toggle('sub');
+     });
+ </script>
++
++<div style="right: 2%;bottom: 2%;position: fixed;display:  block;background-color: #f2f2f2;padding: 8px;">
++    <a href="https://www.buymeacoffee.com/ludeeus" target="_blank"> <i class="fa fa-coffee" style="margin-right: 10px;"></i>Buy Me A Coffee!</a>
++</div>
+ </body>
+ </html>
