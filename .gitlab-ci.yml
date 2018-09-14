@@ -2,9 +2,9 @@
 image: docker:latest
 
 variables:
-  ADDON_GITHUB_REPO: hassio-addons/addon-hastebin
-  ADDON_SLUG: hastebin
-  ADDON_TARGET: hastebin
+  ADDON_GITHUB_REPO: hassio-addons/addon-mqtt
+  ADDON_SLUG: mqtt
+  ADDON_TARGET: mqtt
   DOCKER_DRIVER: overlay2
   DOCKER_HUB_ORG: hassioaddons
 
