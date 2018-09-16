@@ -7,8 +7,9 @@
 source /usr/lib/hassio-addons/base.sh
 
 # Set config file
-CONFIG='/data/mosquitto.conf'
-PWFILE='/opt/pwfile '
+CONFIG='/opt/mosquitto.conf'
+PWFILE='/opt/pwfile'
+ACL_FILE='/opt/acl'
 
 # Remove config file if it exist
 if hass.file_exists "$CONFIG"; then
@@ -63,10 +64,20 @@ if hass.config.true 'broker.enabled'; then
   # Set username and password for the broker
   if ! hass.config.true 'leave_front_door_open'; then
     touch "$PWFILE"
-    for key in $(hass.config.get 'mqttusers | keys[] '); do
+    echo "acl_file $ACL_FILE" >> "$CONFIG"
+    for key in $(hass.config.get 'mqttusers | keys[]'); do
       username=$(hass.config.get "mqttusers[${key}].username")
       password=$(hass.config.get "mqttusers[${key}].password")
       mosquitto_passwd -b "$PWFILE" "$username" "$password"
+      echo "user $username" >> "$ACL_FILE"
+      for entry in $(hass.config.get "mqttusers[${key}].topics"); do
+        topic="$entry"
+        if hass.config.true "mqttusers[${key}].readonly"; then
+          echo "topic readwrite $topic" >> "$ACL_FILE"
+        else
+          echo "topic $topic" >> "$ACL_FILE"
+        fi
+      done
     done
   else
     # Remove pefile if it should not be used

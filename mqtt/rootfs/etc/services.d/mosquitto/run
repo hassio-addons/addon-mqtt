@@ -14,4 +14,4 @@ if hass.config.false 'broker.enabled'; then
 fi
 
 hass.log.info "Starting mosquitto MQTT broker..."
-exec mosquitto -c /data/mosquitto.conf
+exec mosquitto -c /opt/mosquitto.conf

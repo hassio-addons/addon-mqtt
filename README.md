@@ -154,7 +154,7 @@ to enable it, `false` otherwise.
 
 ---
 The following options are for the option group: `web`. These settings
-only apply to the mosquitto broker.
+only apply to the Mosquitto broker.
 
 #### Option `broker`: `enable`
 
@@ -184,7 +184,8 @@ Set this to `true` if you need to enable anonymous authentication.
 ### Option group `mqttuser`
 
 ---
-The following options are for the option group: `mqttuser`.
+The following options are for the option group: `mqttuser`. And are only
+applicable if the broker is enabled in this add-on.
 
 #### Option `mqttuser`: `username`
 
@@ -204,6 +205,15 @@ world.
 Password for authenticating with the mqtt broker of this add-on.
 
 **Note**: _This option support secrets, e.g., `!secret mqtt_broker_password1`._
+
+#### Option `mqttuser`: `readonly`
+
+A flag to set user premission to `readonly` for the specified topics.
+
+#### Option `mqttuser`: `topics`
+
+A list of topics avaiable for the user.
+Wildcards like `#` and `+` are supported.
 
 ### Option: `i_like_to_be_pwned`
 

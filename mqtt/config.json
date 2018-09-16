@@ -45,7 +45,11 @@
     "mqttusers": [
       { 
         "username": "",
-        "password": ""
+        "password": "",
+        "readonly": true,
+        "topics": [
+          "#"
+        ]
       }
     ]
   },
@@ -69,7 +73,11 @@
     "mqttusers": [
       { 
         "username": "str",
-        "password": "str"
+        "password": "str",
+        "readonly": "bool",
+        "topics": [
+          "str"
+        ]
       }
     ],
     "i_like_to_be_pwned": "bool?",
