@@ -23,6 +23,19 @@ With this you can host your broker, and inspect/publish messages in the Web clie
 
 ![sample](/images/image.png)
 
+## Key features
+
+- The Hivemq web service can connect to a websocket enabled
+MQTT broker, it will enable you to easily see or post
+messages to spesific topics.
+- The Mosquitto broker has multi-user support with ACL!
+_This allows you to limit the access of a MQTT user to a spesific topic._
+- With the ACL support you can have a seperate user for every
+device that conects to your broker.
+- You can also have readonly users that cannot post messages.
+
+_ACL= access control list_
+
 ## Installation
 
 The installation of this add-on is pretty straightforward and not different in
