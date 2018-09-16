@@ -72,10 +72,12 @@ Example add-on configuration:
     "enabled": true,
     "enable_ws": true,
     "enable_mqtt": true,
-    "username": "MarryPoppins",
-    "password": "Supercalifragilisticexpialidocious",
     "ssl": true,
     "allow_anonymous": false
+  },
+  "mqttusers": {
+    "username": "MarryPoppins",
+    "password": "Supercalifragilisticexpialidocious"
   }
 }
 ```
@@ -150,7 +152,7 @@ to enable it, `false` otherwise.
 
 ---
 The following options are for the option group: `web`. These settings
-only apply to the Hivemq MQTT web client.
+only apply to the mosquitto broker.
 
 #### Option `broker`: `enable`
 
@@ -167,7 +169,22 @@ The default websocket port is `1884`.
 Enables the websocket protocol on the broker.  
 The default websocket port is `1883`.
 
-#### Option `broker`: `username`
+#### Option `broker`: `ssl`
+
+Enables/Disables SSL (HTTPS) on the mqtt broker of this add-on. Set it `true`
+to enable it, `false` otherwise.
+
+#### Option `broker`: `allow_anonymous`
+
+Set this to `true` if you need to enable anonymous authentication.
+**NB!: It is NOT a good idea having this enabled**
+
+### Option group `mqttuser`
+
+---
+The following options are for the option group: `mqttuser`.
+
+#### Option `mqttuser`: `username`
 
 Username for authenticating with the mqtt broker of this add-on. Leaving the username
 field empty, will disable the authentication mechanism entirely.
@@ -178,23 +195,13 @@ to prevent users of using your installation for themselves.
 This option is HIGHLY recommended in case you expose this add-on to the outside
 world.
 
-**Note**: _This option support secrets, e.g., `!secret mqtt_broker_username`._
+**Note**: _This option support secrets, e.g., `!secret mqtt_broker_username1`._
 
-#### Option `broker`: `password`
+#### Option `mqttuser`: `password`
 
 Password for authenticating with the mqtt broker of this add-on.
 
-**Note**: _This option support secrets, e.g., `!secret mqtt_broker_password`._
-
-#### Option `broker`: `ssl`
-
-Enables/Disables SSL (HTTPS) on the mqtt broker of this add-on. Set it `true`
-to enable it, `false` otherwise.
-
-#### Option `broker`: `allow_anonymous`
-
-Set this to `true` if you need to enable anonymous authentication.
-**NB!: It is NOT a good idea having this enabled**
+**Note**: _This option support secrets, e.g., `!secret mqtt_broker_password1`._
 
 ### Option: `i_like_to_be_pwned`
 

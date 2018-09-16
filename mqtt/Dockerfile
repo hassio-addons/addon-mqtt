@@ -13,13 +13,22 @@ COPY rootfs /
 
 # Setup base
 RUN \
-  apk add --no-cache \
+  apk add --no-cache --virtual .build-dependencies \
+    git=2.18.0-r0 \
+  \
+  && apk add --no-cache \
     apache2-utils=2.4.34-r0 \
-    nginx=1.14.0-r0 \
+    nginx=1.14.0-r1 \
     libwebsockets=2.4.0-r1 \
     mosquitto=1.4.15-r0 \
-    && mkdir /opt
-
+  \
+  && git clone --depth=1 \
+    https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
+  \
+  && mkdir /opt \
+  \
+  && apk del --purge .build-dependencies
+  
 # Build arugments
 ARG BUILD_ARCH
 ARG BUILD_DATE

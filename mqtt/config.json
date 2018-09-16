@@ -39,11 +39,15 @@
       "enabled": true,
       "enable_ws": true,
       "enable_mqtt": true,
-      "username": "",
-      "password": "",
       "ssl": true,
       "allow_anonymous": false
-    }
+    },
+    "mqttusers": [
+      { 
+        "username": "",
+        "password": ""
+      }
+    ]
   },
   "schema": {
     "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
@@ -59,11 +63,15 @@
       "enabled": "bool",
       "enable_ws": "bool",
       "enable_mqtt": "bool",
-      "username": "str",
-      "password": "str",
       "ssl": "bool",
       "allow_anonymous": "bool"
     },
+    "mqttusers": [
+      { 
+        "username": "str",
+        "password": "str"
+      }
+    ],
     "i_like_to_be_pwned": "bool?",
     "leave_front_door_open": "bool?"
   },
