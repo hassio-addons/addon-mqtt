@@ -37,7 +37,7 @@ if hass.config.true 'broker.enabled'; then
     fi
 
     # Set websocket SSL configurtation
-    if hass.config.true 'broker.ssl'; then
+    if hass.config.true 'broker.enable_ws_ssl'; then
       echo "listener 4884" >> "$CONFIG"
       echo "protocol websockets" >> "$CONFIG"
       echo "cafile  /ssl/$(hass.config.get 'certfile')" >> "$CONFIG"
