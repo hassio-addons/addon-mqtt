@@ -36,29 +36,11 @@ fi
 
 # Checks for broker
 if hass.config.true 'broker.enabled'; then
-    # Require username / password
-    if ! hass.config.has_value 'broker.username' \
-        && ! ( \
-            hass.config.exists 'leave_front_door_open' \
-            && hass.config.true 'leave_front_door_open' \
-        );
-    then
-        hass.die 'You need to set a username!'
+    if ! hass.config.has_value 'mqttusers[0].username'; then
+        hass.die 'Missing username for MQTT User'
     fi
-    
-    if ! hass.config.has_value 'broker.password' \
-        && ! ( \
-            hass.config.exists 'leave_front_door_open' \
-            && hass.config.true 'leave_front_door_open' \
-        );
-    then
-        hass.die 'You need to set a password!';
-    fi
-    
-    # Require a secure password
-    if hass.config.has_value 'broker.password' \
-        && ! hass.config.is_safe_password 'broker.password'; then
-        hass.die "Please choose a different password, this one is unsafe!"
+    if ! hass.config.has_value 'mqttusers[0].password'; then
+        hass.die 'Missing password for MQTT User'
     fi
 fi
 

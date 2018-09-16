@@ -6,23 +6,27 @@
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
 
-CONFIG='/app/config.js'
+# Only run this if the web part of the add-on are enabled.
+if hass.config.true 'web.enabled'; then
 
-# Remove config file if it exist
-if hass.file_exists "$CONFIG"; then
-    rm "$CONFIG"    
-fi
+    CONFIG='/app/config.js'
 
-# Create config file
-touch "$CONFIG"
-echo "websocketserver = '""';" >> "$CONFIG" 
+    # Remove config file if it exist
+    if hass.file_exists "$CONFIG"; then
+        rm "$CONFIG"    
+    fi
 
-# Set default WS port
-echo 'websocketport = 1884;' >> "$CONFIG" 
+    # Create config file
+    touch "$CONFIG"
+    echo "websocketserver = '""';" >> "$CONFIG" 
 
-# Enable SSL for broker connection if enabled for the broker
-if hass.config.true 'broker.ssl'; then
-    sed -i 's/%%SSL_VALUE%%/checked="checked"/' /app/index.html
-else
-    sed -i 's/%%SSL_VALUE%%//' /app/index.html
+    # Set default WS port
+    echo 'websocketport = 1884;' >> "$CONFIG" 
+
+    # Enable SSL for broker connection if enabled for the broker
+    if hass.config.true 'broker.ssl'; then
+        sed -i 's/%%SSL_VALUE%%/checked="checked"/' /app/index.html
+    else
+        sed -i 's/%%SSL_VALUE%%//' /app/index.html
+    fi
 fi
