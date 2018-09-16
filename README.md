@@ -75,10 +75,12 @@ Example add-on configuration:
     "ssl": true,
     "allow_anonymous": false
   },
-  "mqttusers": {
-    "username": "MarryPoppins",
-    "password": "Supercalifragilisticexpialidocious"
-  }
+  "mqttusers": [
+    {
+      "username": "MarryPoppins",
+      "password": "Supercalifragilisticexpialidocious"
+    }
+  ]
 }
 ```
 
