@@ -78,7 +78,11 @@ Example add-on configuration:
   "mqttusers": [
     {
       "username": "MarryPoppins",
-      "password": "Supercalifragilisticexpialidocious"
+      "password": "Supercalifragilisticexpialidocious",
+      "readonly": true,
+      "topics": [
+        "cmd/"
+      ]
     }
   ]
 }
