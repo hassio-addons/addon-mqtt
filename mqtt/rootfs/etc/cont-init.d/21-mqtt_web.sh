@@ -24,7 +24,7 @@ if hass.config.true 'web.enabled'; then
     echo 'websocketport = 1884;' >> "$CONFIG" 
 
     # Enable SSL for broker connection if enabled for the broker
-    if hass.config.true 'broker.ssl'; then
+    if hass.config.true 'broker.enable_ws_ssl'; then
         sed -i 's/%%SSL_VALUE%%/checked="checked"/' /app/index.html
     else
         sed -i 's/%%SSL_VALUE%%//' /app/index.html

@@ -19,7 +19,9 @@
   "ports": {
     "5713/tcp": 5713,
     "1884/tcp": 1884,
-    "1883/tcp": 1883
+    "1883/tcp": 1883,
+    "4884/tcp": 4884,
+    "4883/tcp": 4883
   },
   "map": [
     "ssl",
@@ -39,7 +41,8 @@
       "enabled": true,
       "enable_ws": true,
       "enable_mqtt": true,
-      "ssl": true,
+      "enable_ws_ssl": true,
+      "enable_mqtt_ssl": true,
       "allow_anonymous": false
     },
     "mqttusers": [
@@ -67,7 +70,8 @@
       "enabled": "bool",
       "enable_ws": "bool",
       "enable_mqtt": "bool",
-      "ssl": "bool",
+      "enable_ws_ssl": "bool",
+      "enable_mqtt_ssl": "bool",
       "allow_anonymous": "bool"
     },
     "mqttusers": [

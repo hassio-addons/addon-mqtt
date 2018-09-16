@@ -26,13 +26,13 @@ With this you can host your broker, and inspect/publish messages in the Web clie
 ## Key features
 
 - The Hivemq web service can connect to a websocket enabled
-MQTT broker, it will enable you to easily see or post
-messages to spesific topics.
+  MQTT broker, it will enable you to easily see or post
+  messages to spesific topics.
 - The Mosquitto broker has multi-user support with ACL!
-_This allows you to limit the access of a MQTT user to a spesific topic._
+  _This allows you to limit the access of a MQTT user to a spesific topic._
 - With the ACL support you can have a seperate user for every
-device that conects to your broker.
-- You can also have readonly users that cannot post messages.
+  device that conects to your broker.
+- You can also have read-only users that cannot post messages.
 
 _ACL= access control list_
 
@@ -85,7 +85,8 @@ Example add-on configuration:
     "enabled": true,
     "enable_ws": true,
     "enable_mqtt": true,
-    "ssl": true,
+    "enable_ws_ssl": true,
+    "enable_mqtt_ssl": true,
     "allow_anonymous": false
   },
   "mqttusers": [
@@ -180,7 +181,6 @@ Flag to control if this service should be started.
 #### Option `broker`: `enable_ws`
 
 Enables the websocket protocol on the broker.  
-**This is needed if you have enabled the web client of this addon**  
 The default websocket port is `1884`.
 
 #### Option `broker`: `enable_mqtt`
@@ -188,10 +188,15 @@ The default websocket port is `1884`.
 Enables the websocket protocol on the broker.  
 The default websocket port is `1883`.
 
-#### Option `broker`: `ssl`
+#### Option `broker`: `enable_ws_ssl`
 
-Enables/Disables SSL (HTTPS) on the mqtt broker of this add-on. Set it `true`
-to enable it, `false` otherwise.
+Enables the websocket protocol on the broker with ssl support.  
+The default websocket port is `4884`.
+
+#### Option `broker`: `enable_mqtt_ssl`
+
+Enables the websocket protocol on the broker with ssl support.  
+The default websocket port is `4883`.
 
 #### Option `broker`: `allow_anonymous`
 
