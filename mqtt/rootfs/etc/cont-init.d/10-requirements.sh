@@ -47,7 +47,7 @@ fi
 # Check SSL requirements, if enabled
 if hass.config.true 'broker.enable_ws_ssl' \
     || hass.config.true 'broker.enable_mqtt_ssl' \
-    || hass.config.true 'web.ssl'; then # BUG! Should not check if web are not enabled
+    || (hass.config.true 'web.enabled' && hass.config.true 'web.ssl'); then
     if ! hass.config.has_value 'certfile'; then
         hass.die 'SSL is enabled, but no certfile was specified'
     fi
