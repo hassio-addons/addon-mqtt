@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 # ==============================================================================
-# Community Hass.io Add-ons: MQTT Broker & Web client
+# Community Hass.io Add-ons: MQTT Server & Web client
 # This files check if all user configuration requirements are met
 # ==============================================================================
 # shellcheck disable=SC1091
@@ -47,7 +47,7 @@ fi
 # Check SSL requirements, if enabled
 if hass.config.true 'broker.enable_ws_ssl' \
     || hass.config.true 'broker.enable_mqtt_ssl' \
-    || hass.config.true 'web.ssl'; then
+    || hass.config.true 'web.ssl'; then # BUG! Should not check if web are not enabled
     if ! hass.config.has_value 'certfile'; then
         hass.die 'SSL is enabled, but no certfile was specified'
     fi

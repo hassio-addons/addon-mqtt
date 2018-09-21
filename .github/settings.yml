@@ -1,6 +1,6 @@
 ---
 repository:
-  description: "MQTT Broker & Web client - Community Hass.io Add-on for Home Assistant"
+  description: "MQTT Server & Web client - Community Hass.io Add-on for Home Assistant"
   homepage: https://addons.community
   topics: mosquitto, mqtt, hivemq, web, hassio-addons, hassio, hass, home-assistant, homeassistant
   private: false

@@ -37,15 +37,15 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="MQTT Broker & Web client" \
-    io.hass.description="Mosquitto MQTT Broker bundled with Hivemq's web client." \
+    io.hass.name="MQTT Server & Web client" \
+    io.hass.description="Mosquitto MQTT Server bundled with Hivemq's web client." \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="Joakim Sørensen @ludeeus <ludeeus@gmail.com>" \
-    org.label-schema.description="Mosquitto MQTT Broker bundled with Hivemq's web client." \
+    org.label-schema.description="Mosquitto MQTT Server bundled with Hivemq's web client." \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="MQTT Broker & Web client" \
+    org.label-schema.name="MQTT Server & Web client" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="https://community.home-assistant.io/t/community-hass-io-add-on-mqtt/XXXX" \
     org.label-schema.usage="https://github.com/hassio-addons/addon-mqtt/tree/master/README.md" \

@@ -1,4 +1,4 @@
-# Community Hass.io Add-ons: MQTT Broker & Web client
+# Community Hass.io Add-ons: MQTT Server & Web client
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -14,7 +14,7 @@
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
-Mosquitto MQTT Broker bundled with Hivemq's web client.
+Mosquitto MQTT Server bundled with Hivemq's web client.
 
 ## About
 
@@ -26,7 +26,7 @@ With this you can host your broker, and inspect/publish messages in the Web clie
 ## Key features
 
 - The Hivemq web service can connect to a websocket enabled
-  MQTT broker, it will enable you to easily see or post
+  MQTT Server, it will enable you to easily see or post
   messages to spesific topics.
 - The Mosquitto broker has multi-user support with ACL!
   _This allows you to limit the access of a MQTT user to a spesific topic._
@@ -42,11 +42,11 @@ The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Hass.io add-on.
 
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
-1. Install the "MQTT Broker & Web client" add-on.
-1. Start the "MQTT Broker & Web client" add-on
-1. Configure the "MQTT Broker & Web client" add-on
-1. Check the logs of the "MQTT Broker & Web client" add-on to see if everything went well.
-1. Click "OPEN WEB UI" to open the MQTT Broker & Web client website.
+1. Install the "MQTT Server & Web client" add-on.
+1. Start the "MQTT Server & Web client" add-on
+1. Configure the "MQTT Server & Web client" add-on
+1. Check the logs of the "MQTT Server & Web client" add-on to see if everything went well.
+1. Click "OPEN WEB UI" to open the MQTT Server & Web client website.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
 first time starting the add-on).
@@ -211,7 +211,7 @@ applicable if the broker is enabled in this add-on.
 
 #### Option `mqttuser`: `username`
 
-Username for authenticating with the mqtt broker of this add-on. Leaving the username
+Username for authenticating with the MQTT Server of this add-on. Leaving the username
 field empty, will disable the authentication mechanism entirely.
 
 Setting a username/password can be added as an extra line of defense,
@@ -224,7 +224,7 @@ world.
 
 #### Option `mqttuser`: `password`
 
-Password for authenticating with the mqtt broker of this add-on.
+Password for authenticating with the MQTT Server of this add-on.
 
 **Note**: _This option support secrets, e.g., `!secret mqtt_broker_password1`._
 

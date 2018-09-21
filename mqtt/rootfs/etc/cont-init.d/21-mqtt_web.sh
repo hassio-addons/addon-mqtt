@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 # ==============================================================================
-# Community Hass.io Add-ons: MQTT Broker & Web client
-# Configures Hivemq for use with MQTT Broker & Web client
+# Community Hass.io Add-ons: MQTT Server & Web client
+# Configures Hivemq for use with MQTT Server & Web client
 # ==============================================================================
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
