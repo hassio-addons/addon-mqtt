@@ -18,7 +18,8 @@ Mosquitto MQTT Server bundled with Hivemq's web client.
 
 ## About
 
-This add-on combines the power of [Hivemq](https://www.hivemq.com/)'s web based MQTT client, and the powerfull [Mosquitto](https://mosquitto.org/) broker.
+This add-on combines the power of [Hivemq](https://www.hivemq.com/)'s web based MQTT client,
+and the powerfull [Mosquitto](https://mosquitto.org/) broker.
 With this you can host your broker, and inspect/publish messages in the Web client!
 
 ![sample](/images/image.png)
