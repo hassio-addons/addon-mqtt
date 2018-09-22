@@ -25,9 +25,9 @@ if hass.config.true 'broker.enabled'; then
     touch "$CONFIG"
 
     # Set default config
-    echo "log_dest stdout" >> "$CONFIG"
-    echo "persistence true" >> "$CONFIG"
-    echo "persistence_location /data/" >> "$CONFIG"
+    { echo "log_dest stdout"; \
+      echo "persistence true"; \
+      echo "persistence_location /data/"; } >> "$CONFIG"
     
     # Set websocket configurtation
     if hass.config.true 'broker.enable_ws'; then
@@ -38,11 +38,11 @@ if hass.config.true 'broker.enabled'; then
 
     # Set websocket SSL configurtation
     if hass.config.true 'broker.enable_ws_ssl'; then
-      echo "listener 4884" >> "$CONFIG"
-      echo "protocol websockets" >> "$CONFIG"
-      echo "cafile  /ssl/$(hass.config.get 'certfile')" >> "$CONFIG"
-      echo "certfile   /ssl/$(hass.config.get 'certfile')" >> "$CONFIG"
-      echo "keyfile   /ssl/$(hass.config.get 'keyfile')" >> "$CONFIG"
+      { echo "listener 4884"; \
+        echo "protocol websockets"; \
+        echo "cafile  /ssl/$(hass.config.get 'certfile')"; \
+        echo "certfile   /ssl/$(hass.config.get 'certfile')"; \
+        echo "keyfile   /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
     fi
 
     # Set MQTT configurtation
@@ -54,11 +54,11 @@ if hass.config.true 'broker.enabled'; then
 
     # Set MQTT SSL configurtation
     if hass.config.true 'broker.enable_mqtt_ssl'; then
-      echo "listener 4883" >> "$CONFIG"
-      echo "protocol mqtt" >> "$CONFIG"
-      echo "cafile  /ssl/$(hass.config.get 'certfile')" >> "$CONFIG"
-      echo "certfile   /ssl/$(hass.config.get 'certfile')" >> "$CONFIG"
-      echo "keyfile   /ssl/$(hass.config.get 'keyfile')" >> "$CONFIG"
+      { echo "listener 4883"; \
+        echo "protocol mqtt"; \
+        echo "cafile  /ssl/$(hass.config.get 'certfile')"; \
+        echo "certfile   /ssl/$(hass.config.get 'certfile')"; \
+        echo "keyfile   /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
     fi
 
     # Allow anonymous auth?
