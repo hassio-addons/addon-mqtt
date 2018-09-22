@@ -18,9 +18,10 @@ Mosquitto MQTT Server bundled with Hivemq's web client.
 
 ## About
 
-This add-on combines the power of [Hivemq](https://www.hivemq.com/)'s web based MQTT client,
-and the powerfull [Mosquitto](https://mosquitto.org/) broker.
-With this you can host your broker, and inspect/publish messages in the Web client!
+This add-on combines the power of [Hivemq](https://www.hivemq.com/)'s
+web based MQTT client, and the powerfull [Mosquitto](https://mosquitto.org/)
+broker. With this you can host your broker,
+and inspect/publish messages in the Web client!
 
 ![sample](/images/image.png)
 
@@ -35,7 +36,7 @@ With this you can host your broker, and inspect/publish messages in the Web clie
   device that conects to your broker.
 - You can also have read-only users that cannot post messages.
 
-_ACL= access control list_
+ACL = access control list.
 
 ## Installation
 
@@ -46,7 +47,8 @@ comparison to installing any other Hass.io add-on.
 1. Install the "MQTT Server & Web client" add-on.
 1. Start the "MQTT Server & Web client" add-on
 1. Configure the "MQTT Server & Web client" add-on
-1. Check the logs of the "MQTT Server & Web client" add-on to see if everything went well.
+1. Check the logs of the "MQTT Server & Web client"
+  add-on to see if everything went well.
 1. Click "OPEN WEB UI" to open the MQTT Server & Web client website.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
@@ -181,22 +183,22 @@ Flag to control if this service should be started.
 
 #### Option `broker`: `enable_ws`
 
-Enables the websocket protocol on the broker.  
+Enables the websocket protocol on the broker.
 The default websocket port is `1884`.
 
 #### Option `broker`: `enable_mqtt`
 
-Enables the websocket protocol on the broker.  
+Enables the websocket protocol on the broker.
 The default websocket port is `1883`.
 
 #### Option `broker`: `enable_ws_ssl`
 
-Enables the websocket protocol on the broker with ssl support.  
+Enables the websocket protocol on the broker with ssl support.
 The default websocket port is `4884`.
 
 #### Option `broker`: `enable_mqtt_ssl`
 
-Enables the websocket protocol on the broker with ssl support.  
+Enables the websocket protocol on the broker with ssl support.
 The default websocket port is `4883`.
 
 #### Option `broker`: `allow_anonymous`
@@ -257,8 +259,9 @@ only exposed to your internal network. USE AT YOUR OWN RISK!_
 
 ## Embedding into Home Assistant
 
-It is possible to embed the web client of this add-on directly into Home Assistant, allowing you to
-access your the web client of this add-on through the Home Assistant frontend.
+It is possible to embed the web client of this add-on directly into
+Home Assistant, allowing you to access your the web client of this
+add-on through the Home Assistant frontend.
 
 Home Assistant provides the `panel_iframe` component, for these purposes.
 
