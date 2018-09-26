@@ -21,19 +21,18 @@ Mosquitto MQTT Server bundled with Hivemq's web client.
 ## About
 
 This add-on combines the power of [Hivemq][hivemq]'s
-web based MQTT client, and the powerfull [Mosquitto][mosquitto]
-broker. With this you can host your broker,
-and inspect/publish messages in the Web client!
+web-based MQTT client, and the powerful [Mosquitto][mosquitto]
+broker. With this, you can host your own MQTT broker,
+and inspect/publish messages using the built-in web client!
 
 ## Key features
 
-- The Hivemq web service can connect to a websocket enabled
-  MQTT Server, it will enable you to easily see or post
-  messages to spesific topics.
+- The Hivemq web service can connect to a WebSocket enabled MQTT Server,
+  it will enable you to see or post messages to specific topics easily.
 - The Mosquitto broker has multi-user support with ACL!
-  _This allows you to limit the access of a MQTT user to a spesific topic._
-- With the ACL support you can have a seperate user for every
-  device that conects to your broker.
+  _This allows you to limit the access of an MQTT user to a specific topic._
+- With the ACL support, you can have a separate user for every
+  device that connects to your broker.
 - You can also have read-only users that cannot post messages.
 
 ACL = access control list.
@@ -143,7 +142,7 @@ The private key file to use for SSL.
 The following options are for the option group: `web`. These settings
 only apply to the Hivemq MQTT web client.
 
-This webclient can **only** connect to a websocket (WS) port, make sure you
+This web client can **only** connect to a WebSocket (WS) port, make sure you
 have that enabled on the server (broker) you are connecting to.
 
 #### Option `web`: `enable`
@@ -152,11 +151,10 @@ Flag to control if this service should be started.
 
 #### Option `web`: `username`
 
-Username for authenticating with the web client of this add-on. Leaving the username
-field empty, will disable the authentication mechanism entirely.
+Username for authenticating with the web client of this add-on.
 
 Setting a username/password can be added as an extra line of defense,
-to prevent users of using your installation for themselves.
+to prevent users from using your installation for themselves.
 
 This option is HIGHLY recommended in case you expose this add-on to the outside
 world.
@@ -186,23 +184,23 @@ Flag to control if this service should be started.
 
 #### Option `broker`: `enable_ws`
 
-Enables the websocket protocol on the broker.
-The default websocket port is `1884`.
+Enables the WebSocket protocol on the broker.
+The default WebSocket port is `1884`.
 
 #### Option `broker`: `enable_mqtt`
 
-Enables the websocket protocol on the broker.
-The default websocket port is `1883`.
+Enables the WebSocket protocol on the broker.
+The default WebSocket port is `1883`.
 
 #### Option `broker`: `enable_ws_ssl`
 
-Enables the websocket protocol on the broker with ssl support.
-The default websocket port is `4884`.
+Enables the WebSocket protocol on the broker with SSL support.
+The default WebSocket port is `4884`.
 
 #### Option `broker`: `enable_mqtt_ssl`
 
-Enables the websocket protocol on the broker with ssl support.
-The default websocket port is `4883`.
+Enables the WebSocket protocol on the broker with SSL support.
+The default WebSocket port is `4883`.
 
 #### Option `broker`: `allow_anonymous`
 
@@ -219,11 +217,10 @@ _if you have `allow_anonymous` set to `false` you need at least one user._
 
 #### Option `mqttuser`: `username`
 
-Username for authenticating with the MQTT Server of this add-on. Leaving the username
-field empty, will disable the authentication mechanism entirely.
+Username for authenticating with the MQTT Server of this add-on.
 
 Setting a username/password can be added as an extra line of defense,
-to prevent users of using your installation for themselves.
+to prevent users from using your installation for themselves.
 
 This option is HIGHLY recommended in case you expose this add-on to the outside
 world.
@@ -238,11 +235,11 @@ Password for authenticating with the MQTT Server of this add-on.
 
 #### Option `mqttuser`: `readonly`
 
-A flag to set user premission to `readonly` for the specified topics.
+A flag to set user permission to `readonly` for the specified topics.
 
 #### Option `mqttuser`: `topics`
 
-A list of topics avaiable for the user.
+A list of topics available to the user.
 Wildcards like `#` and `+` are supported.
 
 ### Option: `i_like_to_be_pwned`
