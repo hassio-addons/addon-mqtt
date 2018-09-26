@@ -86,8 +86,8 @@ Example add-on configuration:
   },
   "broker": {
     "enabled": true,
-    "enable_ws": true,
-    "enable_mqtt": true,
+    "enable_ws": false,
+    "enable_mqtt": false,
     "enable_ws_ssl": true,
     "enable_mqtt_ssl": true,
     "allow_anonymous": false
@@ -98,7 +98,7 @@ Example add-on configuration:
       "password": "Supercalifragilisticexpialidocious",
       "readonly": true,
       "topics": [
-        "cmd/"
+        "cmnd/"
       ]
     }
   ]
@@ -142,6 +142,9 @@ The private key file to use for SSL.
 ---
 The following options are for the option group: `web`. These settings
 only apply to the Hivemq MQTT web client.
+
+This webclient can **only** connect to a websocket (WS) port, make sure you
+have that enabled on the server (broker) you are connecting to.
 
 #### Option `web`: `enable`
 
@@ -209,8 +212,10 @@ Set this to `true` if you need to enable anonymous authentication.
 ### Option group `mqttuser`
 
 ---
-The following options are for the option group: `mqttuser`. And are only
+The following options are for the option group: `mqttuser`, And are only
 applicable if the broker is enabled in this add-on.
+
+_if you have `allow_anonymous` set to `false` you need at least one user._
 
 #### Option `mqttuser`: `username`
 
