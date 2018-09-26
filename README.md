@@ -16,14 +16,14 @@
 
 Mosquitto MQTT Server bundled with Hivemq's web client.
 
+![sample][screenshot]
+
 ## About
 
-This add-on combines the power of [Hivemq](https://www.hivemq.com/)'s
-web based MQTT client, and the powerfull [Mosquitto](https://mosquitto.org/)
+This add-on combines the power of [Hivemq][hivemq]'s
+web based MQTT client, and the powerfull [Mosquitto][mosquitto]
 broker. With this you can host your broker,
 and inspect/publish messages in the Web client!
-
-![sample][screenshot]
 
 ## Key features
 
@@ -374,10 +374,11 @@ SOFTWARE.
 [discord]: https://discord.me/hassioaddons
 [dockerhub]: https://hub.docker.com/r/hassioaddons/mqtt
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://community.home-assistant.io/
+[forum]: https://community.home-assistant.io/t/community-hass-io-add-ons-mqtt-server-web-client/70376
 [ludeeus]: https://github.com/ludeeus
 [gitlabci-shield]: https://gitlab.com/hassio-addons/addon-mqtt/badges/master/pipeline.svg
 [gitlabci]: https://gitlab.com/hassio-addons/addon-mqtt/pipelines
+[hivemq]: https://www.hivemq.com/
 [home-assistant]: https://home-assistant.io
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [issue]: https://github.com/hassio-addons/addon-mqtt/issues
@@ -386,6 +387,7 @@ SOFTWARE.
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-mqtt.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2018.svg
 [microbadger]: https://microbadger.com/images/hassioaddons/mqtt
+[mosquitto]: https://mosquitto.org/
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/mqtt.svg
 [reddit]: https://reddit.com/r/homeassistant

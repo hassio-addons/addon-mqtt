@@ -47,7 +47,7 @@ LABEL \
     org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.name="MQTT Server & Web client" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.url="https://community.home-assistant.io/t/community-hass-io-add-on-mqtt/XXXX" \
+    org.label-schema.url="https://community.home-assistant.io/t/community-hass-io-add-ons-mqtt-server-web-client/70376" \
     org.label-schema.usage="https://github.com/hassio-addons/addon-mqtt/tree/master/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
     org.label-schema.vcs-url="https://github.com/hassio-addons/addon-mqtt" \
