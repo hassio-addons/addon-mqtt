@@ -17,7 +17,7 @@ fi
 
 options+=(-c /opt/mosquitto.conf)
 
-if [[ "$(hass.config.get 'log_level')" == "debug" ]]; then
+if hass.debug; then
   options+=(-v)
 fi
 
