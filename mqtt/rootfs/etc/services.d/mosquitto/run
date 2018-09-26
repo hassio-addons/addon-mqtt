@@ -6,6 +6,8 @@
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
 
+declare -a options
+
 if hass.config.false 'broker.enabled'; then
     while true; do
       hass.log.debug 'MQTT Server are not enabled...'
@@ -13,5 +15,11 @@ if hass.config.false 'broker.enabled'; then
     done
 fi
 
+options+=(-c /opt/mosquitto.conf)
+
+if [[ "$(hass.config.get 'log_level')" == "debug" ]]; then
+  options+=(-v)
+fi
+
 hass.log.info "Starting mosquitto MQTT Server..."
-exec mosquitto -c /opt/mosquitto.conf
+exec mosquitto "${options[@]}"

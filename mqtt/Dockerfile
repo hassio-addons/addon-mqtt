@@ -13,21 +13,23 @@ COPY rootfs /
 
 # Setup base
 RUN \
-  apk add --no-cache --virtual .build-dependencies \
-    git=2.18.0-r0 \
+  echo "@legacy http://dl-cdn.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories \
   \
   && apk add --no-cache \
     apache2-utils=2.4.34-r0 \
     nginx=1.14.0-r1 \
-    libwebsockets=2.4.0-r1 \
-    mosquitto=1.4.15-r0 \
+    libwebsockets@legacy=2.4.0-r1 \
+    mosquitto@legacy=1.4.15-r0 \
   \
-  && git clone --depth=1 \
-    https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
+  && curl -J -L -o /tmp/web.zip \
+    "https://github.com/hivemq/hivemq-mqtt-web-client/archive/46338a633eb26bc9f6d8d8ff82f8f2aedc004a57.zip" \
+  \
+  && unzip -d /tmp /tmp/web.zip \
+  && mv /tmp/hivemq-mqtt-web-client-*/* /app \
   \
   && mkdir /opt \
   \
-  && apk del --purge .build-dependencies
+  && rm -fr /tmp/*
   
 # Build arugments
 ARG BUILD_ARCH

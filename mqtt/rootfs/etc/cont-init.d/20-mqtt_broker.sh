@@ -13,6 +13,12 @@ if hass.config.true 'broker.enabled'; then
   readonly CONFIG='/opt/mosquitto.conf'
   readonly PWFILE='/opt/pwfile'
   readonly ACL_FILE='/opt/acl'
+  readonly PERSISTENCE_LOCATION='/data/mosquitto/'
+
+  if ! hass.directory_exists "$PERSISTENCE_LOCATION"; then
+    mkdir -p "$PERSISTENCE_LOCATION"    
+  fi
+  chown mosquitto:mosquitto -R "$PERSISTENCE_LOCATION" 
 
   # Remove config file if it exist
   if hass.file_exists "$CONFIG"; then
@@ -27,7 +33,7 @@ if hass.config.true 'broker.enabled'; then
     # Set default config
     { echo "log_dest stdout"; \
       echo "persistence true"; \
-      echo "persistence_location /data/"; } >> "$CONFIG"
+      echo "persistence_location $PERSISTENCE_LOCATION"; } >> "$CONFIG"
     
     # Set websocket configurtation
     if hass.config.true 'broker.enable_ws'; then
@@ -40,9 +46,9 @@ if hass.config.true 'broker.enabled'; then
     if hass.config.true 'broker.enable_ws_ssl'; then
       { echo "listener 4884"; \
         echo "protocol websockets"; \
-        echo "cafile  /ssl/$(hass.config.get 'certfile')"; \
-        echo "certfile   /ssl/$(hass.config.get 'certfile')"; \
-        echo "keyfile   /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
+        echo "cafile /ssl/$(hass.config.get 'certfile')"; \
+        echo "certfile /ssl/$(hass.config.get 'certfile')"; \
+        echo "keyfile /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
     fi
 
     # Set MQTT configurtation
@@ -56,9 +62,9 @@ if hass.config.true 'broker.enabled'; then
     if hass.config.true 'broker.enable_mqtt_ssl'; then
       { echo "listener 4883"; \
         echo "protocol mqtt"; \
-        echo "cafile  /ssl/$(hass.config.get 'certfile')"; \
-        echo "certfile   /ssl/$(hass.config.get 'certfile')"; \
-        echo "keyfile   /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
+        echo "cafile /ssl/$(hass.config.get 'certfile')"; \
+        echo "certfile /ssl/$(hass.config.get 'certfile')"; \
+        echo "keyfile /ssl/$(hass.config.get 'keyfile')"; } >> "$CONFIG"
     fi
 
     # Allow anonymous auth?
