@@ -5,5 +5,6 @@
         "armhf": "hassioaddons/base-armhf:2.3.0",
         "i386": "hassioaddons/base-i386:2.3.0"
     },
+    "squash": false,
     "args": {}
 }

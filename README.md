@@ -23,7 +23,7 @@ web based MQTT client, and the powerfull [Mosquitto](https://mosquitto.org/)
 broker. With this you can host your broker,
 and inspect/publish messages in the Web client!
 
-![sample](/images/image.png)
+![sample][screenshot]
 
 ## Key features
 
@@ -387,4 +387,5 @@ SOFTWARE.
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-mqtt.svg
 [releases]: https://github.com/hassio-addons/addon-mqtt/releases
 [repository]: https://github.com/hassio-addons/repository
+[screenshot]: https://github.com/hassio-addons/addon-mqtt/raw/master/images/image.png
 [semver]: http://semver.org/spec/v2.0.0.htm
