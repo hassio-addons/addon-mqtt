@@ -22,7 +22,7 @@ Mosquitto MQTT Server bundled with Hivemq's web client.
 
 This add-on combines the power of [Hivemq][hivemq]'s
 web-based MQTT client, and the powerful [Mosquitto][mosquitto]
-broker. With this, you can host your own MQTT broker,
+broker (MQTT Server). With this, you can host your own MQTT server,
 and inspect/publish messages using the built-in web client!
 
 ## Key features
@@ -32,7 +32,7 @@ and inspect/publish messages using the built-in web client!
 - The Mosquitto broker has multi-user support with ACL!
   _This allows you to limit the access of an MQTT user to a specific topic._
 - With the ACL support, you can have a separate user for every
-  device that connects to your broker.
+  device that connects to your MQTT server.
 - You can also have read-only users that cannot post messages.
 
 ACL = access control list.
