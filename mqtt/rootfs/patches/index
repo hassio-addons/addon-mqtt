@@ -1,16 +1,22 @@
 --- /app/index.html
 +++ /app/index.html
-@@ -26,7 +26,7 @@
+@@ -25,20 +25,20 @@
+ <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width">
-     <title>MQTT Websocket Client</title>
+-    <title>MQTT Websocket Client</title>
 -
++    <title>MQTT Webclient</title>
 +    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
      <link rel="stylesheet" href="css/normalize.css">
      <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="css/foundation.css">
-@@ -37,8 +37,8 @@
- 
+     <link rel="stylesheet" href="css/jquery.minicolors.css">
+-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+ </head>
+ <body class="notconnected">
+
  <div id="header">
      <div>
 -        <a href="http://www.hivemq.com"><img id="headerlogo" src="assets/logo.png"></a>
@@ -27,37 +33,37 @@
 -                        <label>Host *</label>
 -                        <input id="urlInput" type="text" value="broker.mqttdashboard.com">
 +                        <label>Broker IP or hostname *</label>
-+                        <input id="urlInput" type="text" value="Hass.io IP address">
++                        <input id="urlInput" type="text" value="MQTT Server DNS Name or IP address">
                      </div>
- 
+
                      <div class="large-1 columns">
                          <label>Port *</label>
 -                        <input id="portInput" type="text" value="8000"/>
 +                        <input id="portInput" type="text" value="1884"/>
                      </div>
- 
+
                      <div class="large-4 columns">
 @@ -102,21 +102,21 @@
- 
+
                      <div class="large-1 columns">
                          <label>SSL</label>
 -                        <input id="sslInput" type="checkbox"/>
 +                        <input id="sslInput" type="checkbox" %%SSL_VALUE%%/>
                      </div>
- 
+
 -                    <div class="large-2 columns">
 +                    <div class="large-2 columns" style="display: none;">
                          <label>Clean Session</label>
                          <input class="checky" id="cleanSessionInput" type="checkbox" checked="checked"
                                 disabled="disabled"/>
                      </div>
- 
+
 -                    <div class="large-8 columns">
 +                    <div class="large-8 columns" style="display: none;">
                          <label>Last-Will Topic</label>
                          <input id="lwTopicInput" type="text"/>
                      </div>
- 
+
 -                    <div class="large-2 columns">
 +                    <div class="large-2 columns" style="display: none;">
                          <label>Last-Will QoS</label>
@@ -66,13 +72,13 @@
 @@ -125,12 +125,12 @@
                          </select>
                      </div>
- 
+
 -                    <div class="large-2 columns">
 +                    <div class="large-2 columns" style="display: none;">
                          <label>Last-Will Retain</label>
                          <input class="checky" id="LWRInput" type="checkbox"/>
                      </div>
- 
+
 -                    <div class="large-12 columns">
 +                    <div class="large-12 columns" style="display: none;">
                          <label>Last-Will Messsage</label>
@@ -96,9 +102,33 @@
                                      </div>
                                  </div>
                              </form>
+@@ -289,15 +289,15 @@
+ </div>
+ </div>
+
+-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.3.1/lodash.min.js"></script>
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
++<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
++<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.3.1/lodash.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/js/foundation.min.js"></script>
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/js/foundation/foundation.forms.min.js"></script>
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+-<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/js/foundation.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/js/foundation/foundation.forms.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
++<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+ <script src="js/jquery.minicolors.min.js"></script>
+ <script src="js/mqttws31.js"></script>
+ <script src="js/encoder.js"></script>
 @@ -305,21 +305,12 @@
  <script src="config.js"></script>
- 
+
  <script>
 -
 -    function randomString(length) {
@@ -111,19 +141,18 @@
 -
      $(document).foundation();
      $(document).ready(function () {
- 
+
          $('#urlInput').val(websocketserver);
          $('#portInput').val(websocketport);
 -        $('#clientIdInput').val('clientId-' + randomString(10));
 +        $('#clientIdInput').val('hassio-mqtt-client');
- 
+
          $('#colorChooser').minicolors();
- 
-@@ -335,5 +326,9 @@
+
+@@ -335,5 +326,8 @@
          websocketclient.render.toggle('sub');
      });
  </script>
-+
 +<div style="right: 2%;bottom: 2%;position: fixed;display:  block;background-color: #f2f2f2;padding: 8px;">
 +    <a href="https://www.buymeacoffee.com/ludeeus" target="_blank"> <i class="fa fa-coffee" style="margin-right: 10px;"></i>Buy Me A Coffee!</a>
 +</div>

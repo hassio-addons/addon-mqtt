@@ -10,9 +10,9 @@ source /usr/lib/hassio-addons/base.sh
 if hass.config.true 'broker.enabled'; then
 
   # Set config file
-  CONFIG='/opt/mosquitto.conf'
-  PWFILE='/opt/pwfile'
-  ACL_FILE='/opt/acl'
+  readonly CONFIG='/opt/mosquitto.conf'
+  readonly PWFILE='/opt/pwfile'
+  readonly ACL_FILE='/opt/acl'
 
   # Remove config file if it exist
   if hass.file_exists "$CONFIG"; then

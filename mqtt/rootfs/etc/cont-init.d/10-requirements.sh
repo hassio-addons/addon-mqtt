@@ -35,7 +35,8 @@ if hass.config.true 'web.enabled'; then
 fi
 
 # Checks for broker
-if hass.config.true 'broker.enabled'; then
+if hass.config.true 'broker.enabled' \
+    && hass.config.false 'broker.allow_anonymous'; then
     if ! hass.config.has_value 'mqttusers[0].username'; then
         hass.die 'Missing username for MQTT User'
     fi
