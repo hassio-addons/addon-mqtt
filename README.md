@@ -175,7 +175,7 @@ to enable it, `false` otherwise.
 ### Option group `broker`
 
 ---
-The following options are for the option group: `web`. These settings
+The following options are for the option group: `broker`. These settings
 only apply to the Mosquitto broker.
 
 #### Option `broker`: `enable`
