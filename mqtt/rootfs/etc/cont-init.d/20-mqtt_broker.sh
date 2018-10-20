@@ -74,6 +74,9 @@ if hass.config.true 'broker.enabled'; then
       echo "allow_anonymous false" >> "$CONFIG"
     fi
 
+    # Create ACL file
+    touch "$ACL_FILE"
+
     # Set username and password for the broker
     if ! hass.config.true 'leave_front_door_open'; then
       touch "$PWFILE"
