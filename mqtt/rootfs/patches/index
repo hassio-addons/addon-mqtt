@@ -153,7 +153,7 @@
          websocketclient.render.toggle('sub');
      });
  </script>
-+<div style="right: 2%;bottom: 2%;position: fixed;display:  block;background-color: #f2f2f2;padding: 8px;">
++<div style="right: 2%;bottom: 2%;position: fixed;display:  block;background-color: #f2f2f2;padding: 8px; z-index: -1;">
 +    <a href="https://www.buymeacoffee.com/ludeeus" target="_blank"> <i class="fa fa-coffee" style="margin-right: 10px;"></i>Buy Me A Coffee!</a>
 +</div>
  </body>
