@@ -18,6 +18,8 @@ RUN \
   && apk add --no-cache \
     apache2-utils=2.4.34-r0 \
     nginx=1.14.0-r1 \
+    lua-resty-http=0.12-r1 \
+    nginx-mod-http-lua=1.14.0-r1 \
     libwebsockets@legacy=2.4.0-r1 \
     mosquitto@legacy=1.4.15-r0 \
   \

@@ -6,34 +6,6 @@
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
 
-# Checks for web client
-if hass.config.true 'web.enabled'; then
-    # Require username / password
-    if ! hass.config.has_value 'web.username' \
-        && ! ( \
-            hass.config.exists 'leave_front_door_open' \
-            && hass.config.true 'leave_front_door_open' \
-        );
-    then
-        hass.die 'You need to set a username!'
-    fi
-    
-    if ! hass.config.has_value 'web.password' \
-        && ! ( \
-            hass.config.exists 'leave_front_door_open' \
-            && hass.config.true 'leave_front_door_open' \
-        );
-    then
-        hass.die 'You need to set a password!';
-    fi
-    
-    # Require a secure password
-    if hass.config.has_value 'web.password' \
-        && ! hass.config.is_safe_password 'web.password'; then
-        hass.die "Please choose a different password, this one is unsafe!"
-    fi
-fi
-
 # Checks for broker
 if hass.config.true 'broker.enabled' \
     && hass.config.false 'broker.allow_anonymous' \

@@ -49,6 +49,7 @@ comparison to installing any other Hass.io add-on.
 1. Check the logs of the "MQTT Server & Web client"
   add-on to see if everything went well.
 1. Click "OPEN WEB UI" to open the MQTT Server & Web client website.
+1. Log in with your Home Assistant user.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
 first time starting the add-on).
@@ -79,8 +80,6 @@ Example add-on configuration:
   "keyfile": "privkey.pem",
   "web": {
     "enabled": true,
-    "username": "MarryPoppins",
-    "password": "Supercalifragilisticexpialidocious",
     "ssl": true
   },
   "broker": {
@@ -148,24 +147,6 @@ have that enabled on the server (broker) you are connecting to.
 #### Option `web`: `enable`
 
 Flag to control if this service should be started.
-
-#### Option `web`: `username`
-
-Username for authenticating with the web client of this add-on.
-
-Setting a username/password can be added as an extra line of defense,
-to prevent users from using your installation for themselves.
-
-This option is HIGHLY recommended in case you expose this add-on to the outside
-world.
-
-**Note**: _This option support secrets, e.g., `!secret mqtt_web_username`._
-
-#### Option `web`: `password`
-
-Password for authenticating with the web client of this add-on.
-
-**Note**: _This option support secrets, e.g., `!secret mqtt_web_password`._
 
 #### Option `web`: `ssl`
 
