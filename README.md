@@ -170,18 +170,18 @@ The default WebSocket port is `1884`.
 
 #### Option `broker`: `enable_mqtt`
 
-Enables the WebSocket protocol on the broker.
-The default WebSocket port is `1883`.
+Enables the MQTT protocol on the broker.
+The default MQTT port is `1883`.
 
 #### Option `broker`: `enable_ws_ssl`
 
 Enables the WebSocket protocol on the broker with SSL support.
-The default WebSocket port is `4884`.
+The default WebSocket port with SSL support is `4884`.
 
 #### Option `broker`: `enable_mqtt_ssl`
 
-Enables the WebSocket protocol on the broker with SSL support.
-The default WebSocket port is `4883`.
+Enables the MQTT protocol on the broker with SSL support.
+The default MQTT port with SSL support is `4883`.
 
 #### Option `broker`: `allow_anonymous`
 
