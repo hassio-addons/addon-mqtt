@@ -70,7 +70,8 @@ first time starting the add-on).
 ## Configuration Home assistant
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
-**Note2**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: <ip>"_
+
+**Note**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: <ip>"_
 
 ```json
 # Example configuration.yaml entry
