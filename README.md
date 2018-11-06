@@ -71,7 +71,7 @@ first time starting the add-on).
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
-**Note2**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: 'broker ip adress' "_
+**Note2**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: 'broker/hass ip adress' "_
 
 ```json
 # Example configuration.yaml entry
