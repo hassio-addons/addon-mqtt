@@ -258,6 +258,13 @@ panel_iframe:
     url: https://addres.to.your.hass.io:5713
 ```
 
+## Custom configuration
+
+If you want to add additional custom configuration to the mosquitto broker
+Create a directory named `mqtt` in /share and put a file named `mosquitto.conf`
+inside it, add the configuration you want to that file and it will be added
+next time you restart the addon.
+
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
