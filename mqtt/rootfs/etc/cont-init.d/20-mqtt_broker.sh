@@ -11,7 +11,7 @@ if hass.config.true 'broker.enabled'; then
 
   # Set config file
   readonly CONFIG='/opt/mosquitto.conf'
-  readonly CUSTOM_CONFIG='/share/mqtt/mosquitto.conf'
+  readonly CUSTOM_CONFIG='/config/mqtt/mosquitto.conf'
   readonly PWFILE='/opt/pwfile'
   readonly ACL_FILE='/opt/acl'
   readonly PERSISTENCE_LOCATION='/data/mosquitto/'

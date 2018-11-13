@@ -261,7 +261,7 @@ panel_iframe:
 ## Custom configuration
 
 If you want to add additional custom configuration to the mosquitto broker
-Create a directory named `mqtt` in /share and put a file named `mosquitto.conf`
+Create a directory named `mqtt` in /config and put a file named `mosquitto.conf`
 inside it, add the configuration you want to that file and it will be added
 next time you restart the addon.
 
