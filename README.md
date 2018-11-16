@@ -67,7 +67,23 @@ first time starting the add-on).
 [![Docker Layers][layers-shield]][microbadger]
 [![Docker Pulls][pulls-shield]][dockerhub]
 
-## Configuration
+## Home Assistant configuration example
+
+### Notes
+_Remember to restart the add-on when the configuration is changed._
+
+_If you are moving from the official add-on to this one, make sure that you change the `broker:` in your configuration from `core-mosquitto` to `a0d7b954-mqtt`._
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  broker: a0d7b954-mqtt
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  client_id: home-assistant
+```
+
+## Add-on configuration example
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
