@@ -73,7 +73,7 @@ first time starting the add-on).
 
 **Note2**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: localhost"_
 
-```json
+```yaml
 # Example configuration.yaml entry
 mqtt:
   broker: localhost
