@@ -69,7 +69,11 @@ first time starting the add-on).
 
 ## Home Assistant configuration example
 
-**Note**: _Remember to restart the add-on when the configuration is changed._
+### Notes
+_Remember to restart the add-on when the configuration is changed._
+
+_If you are moving from the official add-on to this one, make sure that you change the `broker:` in your configuration from `core-mosquitto` to `a0d7b954-mqtt`._
+
 
 **Note2**: _When changing from the official add-on to this one, make sure to change configuration.yaml broker ip. "broker: core-mosquitto" to "broker: localhost"_
 
