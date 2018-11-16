@@ -76,7 +76,7 @@ first time starting the add-on).
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  broker: localhost
+  broker: a0d7b954-mqtt
   username: !secret mqtt_username
   password: !secret mqtt_password
   client_id: home-assistant
