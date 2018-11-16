@@ -82,7 +82,7 @@ mqtt:
   client_id: home-assistant
 ```
 
-## Configuration add-on
+## Add-on configuration example
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
