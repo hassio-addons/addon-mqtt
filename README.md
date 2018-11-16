@@ -67,7 +67,7 @@ first time starting the add-on).
 [![Docker Layers][layers-shield]][microbadger]
 [![Docker Pulls][pulls-shield]][dockerhub]
 
-## Configuration Home assistant
+## Home Assistant configuration example
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
