@@ -103,11 +103,10 @@ if hass.config.true 'broker.enabled'; then
       fi
     fi
   fi
-fi
-
-# Add custom mosquitto.config to config if one exist
-if hass.file_exists "$CUSTOM_CONFIG"; then
-  hass.log.info "Adding custom entries to configuration."
-  # shellcheck disable=SC2002
-  cat "$CUSTOM_CONFIG" | tee -a "$CONFIG" > /dev/null
+  # Add custom mosquitto.config to config if one exist
+  if hass.file_exists "$CUSTOM_CONFIG"; then
+    hass.log.info "Adding custom entries to configuration."
+    # shellcheck disable=SC2002
+    cat "$CUSTOM_CONFIG" | tee -a "$CONFIG" > /dev/null
+  fi
 fi
