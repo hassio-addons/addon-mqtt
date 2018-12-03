@@ -90,9 +90,9 @@ if hass.config.true 'broker.enabled'; then
         for entry in $(hass.config.get "mqttusers[${key}].topics"); do
           topic="$entry"
           if hass.config.true "mqttusers[${key}].readonly"; then
-            echo "topic readwrite $topic" >> "$ACL_FILE"
+            echo "topic read $topic" >> "$ACL_FILE"
           else
-            echo "topic $topic" >> "$ACL_FILE"
+            echo "topic readwrite $topic" >> "$ACL_FILE"
           fi
         done
       done
