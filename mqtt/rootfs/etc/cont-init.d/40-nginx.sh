@@ -10,6 +10,13 @@ declare certfile
 declare keyfile
 
 # Only run this if the web part of the add-on are enabled.
+
+if hass.config.true 'leave_front_door_open'; then
+    # Remove LUA auth if leave_front_door_open == True
+    sed -i "/access_by_lua_file/d" /etc/nginx/nginx-ssl.conf
+    sed -i "/access_by_lua_file/d" /etc/nginx/nginx-ssl.conf
+fi
+
 if hass.config.true 'web.enabled'; then
     # Enable SSL
     if hass.config.true 'web.ssl'; then
