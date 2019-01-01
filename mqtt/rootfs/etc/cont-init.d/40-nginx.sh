@@ -15,6 +15,10 @@ if hass.config.true 'web.enabled'; then
     if hass.config.true 'leave_front_door_open'; then
         sed -i "/access_by_lua_file/d" /etc/nginx/nginx.conf
         sed -i "/access_by_lua_file/d" /etc/nginx/nginx-ssl.conf
+        sed -i "/load_module/d" /etc/nginx/nginx.conf
+        sed -i "/load_module/d" /etc/nginx/nginx-ssl.conf
+        sed -i "/lua_shared_dict/d" /etc/nginx/nginx.conf
+        sed -i "/lua_shared_dict/d" /etc/nginx/nginx-ssl.conf
     fi
     # Enable SSL
     if hass.config.true 'web.ssl'; then
