@@ -82,6 +82,7 @@ if hass.config.true 'broker.enabled'; then
     if ! hass.config.true 'leave_front_door_open'; then
       touch "$PWFILE"
       echo "acl_file $ACL_FILE" >> "$CONFIG"
+      echo "password_file $PWFILE" >> "$CONFIG"
       for key in $(hass.config.get 'mqttusers | keys[]'); do
         username=$(hass.config.get "mqttusers[${key}].username")
         password=$(hass.config.get "mqttusers[${key}].password")
