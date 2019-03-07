@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base:2.3.1
+ARG BUILD_FROM=hassioaddons/base:2.3.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -31,7 +31,7 @@ RUN \
   && mkdir /opt \
   \
   && rm -fr /tmp/*
-  
+
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
