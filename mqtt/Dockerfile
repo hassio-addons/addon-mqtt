@@ -13,22 +13,17 @@ COPY rootfs /
 
 # Setup base
 RUN \
-  echo "@legacy http://dl-cdn.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories \
-  \
-  && apk add --no-cache \
+  apk add --no-cache \
     nginx=1.14.2-r0 \
     lua-resty-http=0.12-r1 \
     nginx-mod-http-lua=1.14.2-r0 \
-    libwebsockets@legacy=2.4.0-r1 \
-    mosquitto@legacy=1.4.15-r0 \
+    mosquitto=1.5.6-r0 \
   \
   && curl -J -L -o /tmp/web.zip \
     "https://github.com/hivemq/hivemq-mqtt-web-client/archive/46338a633eb26bc9f6d8d8ff82f8f2aedc004a57.zip" \
   \
   && unzip -d /tmp /tmp/web.zip \
   && mv /tmp/hivemq-mqtt-web-client-*/* /app \
-  \
-  && mkdir /opt \
   \
   && rm -fr /tmp/*
 
