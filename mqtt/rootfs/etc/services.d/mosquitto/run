@@ -1,25 +1,23 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Community Hass.io Add-ons: MQTT Server & Web client
 # Runs the MQTT Server
 # ==============================================================================
-# shellcheck disable=SC1091
-source /usr/lib/hassio-addons/base.sh
 
 declare -a options
 
-if hass.config.false 'broker.enabled'; then
+if bashio::config.false 'broker.enabled'; then
     while true; do
-      hass.log.debug 'MQTT Server are not enabled...'
+      bashio::log.debug 'MQTT Server are not enabled...'
       exec sleep 86400
     done
 fi
 
 options+=(-c /opt/mosquitto.conf)
 
-if hass.debug; then
+if bashio::debug; then
   options+=(-v)
 fi
 
-hass.log.info "Starting mosquitto MQTT Server..."
+bashio::log.info "Starting mosquitto MQTT Server..."
 exec mosquitto "${options[@]}"

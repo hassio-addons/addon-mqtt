@@ -1,25 +1,21 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Community Hass.io Add-ons: MQTT Server & Web client
 # Runs the NGINX daemon
 # ==============================================================================
-# shellcheck disable=SC1091
-source /usr/lib/hassio-addons/base.sh
-
-if hass.config.false 'web.enabled'; then
+if bashio::config.false 'web.enabled'; then
     while true; do
-      hass.log.debug 'Web are not enabled...'
       exec sleep 86400
     done
 fi
 
 # Disable HA Authentication if front door is open
-if hass.config.true 'leave_front_door_open'; then
+if bashio::config.true 'leave_front_door_open'; then
     export DISABLE_HA_AUTHENTICATION=true
 fi
 
-hass.log.info "Starting NGINX for the MQTT client..."
-if hass.config.true 'web.ssl'; then
+bashio::log.info "Starting NGINX for the MQTT client..."
+if bashio::config.true 'web.ssl'; then
     options='/etc/nginx/nginx-ssl.conf'
 else
     options='/etc/nginx/nginx.conf'
