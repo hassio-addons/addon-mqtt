@@ -11,21 +11,73 @@ WORKDIR /app
 # Copy root filesystem
 COPY rootfs /
 
+# Versions
+ENV HIVEMQ='46338a633eb26bc9f6d8d8ff82f8f2aedc004a57' \
+    LIBWEBSOCKETS='2.4.2' \
+    MOSQUITTO='1.5.8'
+
 # Setup base
 RUN \
-  apk add --no-cache \
+  apk add --no-cache --virtual .build-dependencies \
+    git=2.20.1-r0 \
+    cmake=3.13.0-r0 \
+    build-base=0.5-r1 \
+    zlib-dev=1.2.11-r1 \
+    openssl-dev=1.1.1b-r1 \
+  \
+  && apk add --no-cache \
     nginx=1.14.2-r0 \
     lua-resty-http=0.12-r1 \
     nginx-mod-http-lua=1.14.2-r0 \
-    mosquitto=1.5.6-r0 \
   \
-  && curl -J -L -o /tmp/web.zip \
-    "https://github.com/hivemq/hivemq-mqtt-web-client/archive/46338a633eb26bc9f6d8d8ff82f8f2aedc004a57.zip" \
+  && git clone --depth=1 \
+    https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
+  && cd /app \ 
+  && git checkout "${HIVEMQ}" \
   \
-  && unzip -d /tmp /tmp/web.zip \
-  && mv /tmp/hivemq-mqtt-web-client-*/* /app \
+  && git clone --branch "v${LIBWEBSOCKETS}" --depth=1 \
+    https://github.com/warmcat/libwebsockets.git /tmp/libwebsockets \
   \
-  && rm -fr /tmp/*
+  && mkdir -p /tmp/libwebsockets/build \
+  && cd /tmp/libwebsockets/build \
+  && cmake .. \
+    -DCMAKE_BUILD_TYPE=MinSizeRel \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLWS_IPV6=OFF \
+    -DLWS_WITHOUT_BUILTIN_GETIFADDRS=ON \
+    -DLWS_WITHOUT_CLIENT=ON \
+    -DLWS_WITHOUT_EXTENSIONS=ON \
+    -DLWS_WITHOUT_TESTAPPS=ON \
+    -DLWS_WITH_SHARED=OFF \
+    -DLWS_WITH_ZIP_FOPS=OFF \
+    -DLWS_WITH_ZLIB=OFF \
+  && make \
+  && make install \
+  \
+  && git clone --branch "v${MOSQUITTO}" --depth=1 \
+      https://github.com/eclipse/mosquitto.git /tmp/mosquitto \
+  \
+  && cd /tmp/mosquitto \
+  && make \
+    WITH_ADNS=no \
+    WITH_DOCS=no \
+    WITH_UUID=no \
+    WITH_MEMORY_TRACKING=no \
+    WITH_SHARED_LIBRARIES=no \
+    WITH_SRV=no \
+    WITH_STRIP=yes \
+    WITH_TLS_PSK=no \
+    WITH_WEBSOCKETS=yes \
+    prefix=/usr \
+    binary \
+  && make WITH_DOCS=no install binary \
+  \
+  && addgroup -S mosquitto \
+  && adduser -S -D -H -h /var/empty -s /sbin/nologin \
+    -G mosquitto -g mosquitto mosquitto \
+  \
+  && rm -fr /tmp/* \
+  && apk del --no-cache --purge .build-dependencies
 
 # Build arguments
 ARG BUILD_ARCH
