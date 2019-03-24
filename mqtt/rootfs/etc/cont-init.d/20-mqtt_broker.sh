@@ -15,7 +15,7 @@ if bashio::config.true 'broker.enabled'; then
   readonly PERSISTENCE_LOCATION='/data/mosquitto/'
 
   if ! bashio::fs.directory_exists "$PERSISTENCE_LOCATION"; then
-    mkdir -p "$PERSISTENCE_LOCATION"    
+    mkdir -p "$PERSISTENCE_LOCATION"
   fi
   chown mosquitto:mosquitto -R "$PERSISTENCE_LOCATION" 
 
@@ -39,9 +39,9 @@ if bashio::config.true 'broker.enabled'; then
     # Set websocket configurtation
     if bashio::config.true 'broker.enable_ws'; then
       bashio::log.info 'Setting configuration for websockets...'
-      echo "listener 1884" >> "$CONFIG"
-      echo "protocol websockets" >> "$CONFIG"
-      echo "socket_domain ipv4" >> "$CONFIG"
+      { echo "listener 1884";
+      echo "protocol websockets";
+      echo "socket_domain ipv4"; } >> "$CONFIG"
     fi
 
     # Set websocket SSL configurtation
