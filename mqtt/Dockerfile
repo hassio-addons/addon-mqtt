@@ -17,6 +17,7 @@ ENV HIVEMQ='46338a633eb26bc9f6d8d8ff82f8f2aedc004a57' \
     MOSQUITTO='1.5.8'
 
 # Setup base
+# hadolint ignore=DL3003
 RUN \
   apk add --no-cache --virtual .build-dependencies \
     git=2.20.1-r0 \
