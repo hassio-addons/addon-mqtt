@@ -19,7 +19,7 @@ RUN \
     nginx=1.14.2-r0 \
     lua-resty-http=0.12-r1 \
     nginx-mod-http-lua=1.14.2-r0 \
-    libwebsockets@legacy=2.4.0-r1 \
+    libwebsockets@legacy=3.0.0-r0 \
     mosquitto@legacy=1.4.15-r0 \
   \
   && curl -J -L -o /tmp/web.zip \
