@@ -32,7 +32,6 @@ RUN \
   \
   && git clone --depth=1 \
     https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
-  && cd /app \ 
   && git checkout "${HIVEMQ}" \
   \
   && git clone --branch "v${LIBWEBSOCKETS}" --depth=1 \
