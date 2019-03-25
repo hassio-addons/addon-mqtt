@@ -85,17 +85,19 @@ if bashio::config.true 'broker.enabled'; then
       touch "$PWFILE"
       echo "acl_file $ACL_FILE" >> "$CONFIG"
       echo "password_file $PWFILE" >> "$CONFIG"
-      for key in $(bashio::config 'mqttusers | keys[]'); do
-        username=$(bashio::config "mqttusers[${key}].username")
-        password=$(bashio::config "mqttusers[${key}].password")
-        mosquitto_passwd -b "$PWFILE" "$username" "$password"
-        echo "user $username" >> "$ACL_FILE"
-        for entry in $(bashio::config "mqttusers[${key}].topics"); do
-          topic="$entry"
-          if bashio::config.true "mqttusers[${key}].readonly"; then
-            echo "topic read $topic" >> "$ACL_FILE"
+      for user in $(bashio::config 'mqttusers'); do
+        username=$(jq '.username' <<< "${user}")
+        password=$(jq '.password' <<< "${user}")
+        readonly=$(jq '.readonly' <<< "${user}")
+        topics=$(jq '.topics' <<< "${user}" | jq .[])
+        bashio::log.info "Setting up user ${username}"
+        mosquitto_passwd -b "$PWFILE" "${username}" "${password}"
+        echo "user ${username}" >> "$ACL_FILE"
+        for topic in ${topics}; do
+          if ${readonly}; then
+            echo "topic read ${topic}" >> "$ACL_FILE"
           else
-            echo "topic readwrite $topic" >> "$ACL_FILE"
+            echo "topic readwrite ${topic}" >> "$ACL_FILE"
           fi
         done
       done
