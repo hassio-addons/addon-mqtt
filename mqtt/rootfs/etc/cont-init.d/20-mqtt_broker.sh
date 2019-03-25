@@ -31,8 +31,11 @@ if bashio::config.true 'broker.enabled'; then
 
     # Set default config
     { echo "log_dest stdout"; \
+      echo "log_type error"; \
+      echo "log_type warning"; \
+      echo "log_type notice "; \
+      echo "log_type information "; \
       echo "log_type websockets"; \
-      echo "websockets_log_level 255"; \
       echo "persistence true"; \
       echo "persistence_location $PERSISTENCE_LOCATION"; } >> "$CONFIG"
     
