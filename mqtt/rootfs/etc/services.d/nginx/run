@@ -3,10 +3,10 @@
 # Community Hass.io Add-ons: MQTT Server & Web client
 # Runs the NGINX daemon
 # ==============================================================================
-if bashio::config.false 'web.enabled'; then
-    while true; do
-      exec sleep 86400
-    done
+
+# Wait for mosquitto to start
+if bashio::config.true 'broker'; then
+    bashio::net.wait_for 1884
 fi
 
 # Disable HA Authentication if front door is open
@@ -15,10 +15,4 @@ if bashio::config.true 'leave_front_door_open'; then
 fi
 
 bashio::log.info "Starting NGINX for the MQTT client..."
-if bashio::config.true 'web.ssl'; then
-    options='/etc/nginx/nginx-ssl.conf'
-else
-    options='/etc/nginx/nginx.conf'
- fi
-
- exec nginx -c "$options"
+exec nginx
