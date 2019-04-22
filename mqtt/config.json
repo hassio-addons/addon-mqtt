@@ -30,7 +30,6 @@
     "config"
   ],
   "options": {
-    "log_level": "info",
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "web": {
@@ -57,7 +56,7 @@
     ]
   },
   "schema": {
-    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
+    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)?",
     "certfile": "str",
     "keyfile": "str",
     "web": {
