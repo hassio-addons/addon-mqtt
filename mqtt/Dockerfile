@@ -14,7 +14,7 @@ COPY rootfs /
 # Versions
 ENV HIVEMQ='46338a633eb26bc9f6d8d8ff82f8f2aedc004a57' \
     LIBWEBSOCKETS='2.4.2' \
-    MOSQUITTO='1.5.8'
+    MOSQUITTO='1.6.1'
 
 # Setup base
 # hadolint ignore=DL3003
