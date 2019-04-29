@@ -8,9 +8,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Sets working directory
 WORKDIR /app
 
-# Copy root filesystem
-COPY rootfs /
-
 # Versions
 ENV HIVEMQ='46338a633eb26bc9f6d8d8ff82f8f2aedc004a57' \
     LIBWEBSOCKETS='2.4.2' \
@@ -76,8 +73,15 @@ RUN \
   && adduser -S -D -H -h /var/empty -s /sbin/nologin \
     -G mosquitto -g mosquitto mosquitto \
   \
-  && rm -fr /tmp/* \
-  && apk del --no-cache --purge .build-dependencies
+  && apk del --no-cache --purge .build-dependencies \
+  && rm -fr \
+    /etc/nginx \
+    /opt/mosquitto.conf \
+    /opt/acl \
+    /tmp/*
+
+# Copy root filesystem
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
