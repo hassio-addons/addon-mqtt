@@ -246,6 +246,14 @@ Create a directory named `mqtt` in /config and put a file named `mosquitto.conf`
 inside it, add the configuration you want to that file and it will be added
 next time you restart the addon.
 
+## Known issues
+
+```text
+nginx: [alert] detected a LuaJIT version which is not OpenResty's; many optimizations will be disabled and performance will be compromised (see https://github.com/openresty/luajit2 for OpenResty's LuaJIT or, even better, consider using the OpenResty releases from https://openresty.org/en/download.html)
+```
+
+This will show in the log on every startup, this is expected and can be ignored.
+
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
