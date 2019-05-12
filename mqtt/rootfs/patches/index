@@ -142,7 +142,8 @@
      $(document).foundation();
      $(document).ready(function () {
 
-         $('#urlInput').val(websocketserver);
+-        $('#urlInput').val(websocketserver);
++        $('#urlInput').val(window.location.hostname);
          $('#portInput').val(websocketport);
 -        $('#clientIdInput').val('clientId-' + randomString(10));
 +        $('#clientIdInput').val('hassio-mqtt-client');
@@ -154,7 +155,7 @@
      });
  </script>
 +<div style="right: 2%;bottom: 2%;position: fixed;display:  block;background-color: #f2f2f2;padding: 8px; z-index: -1;">
-+    <a href="https://www.buymeacoffee.com/ludeeus" target="_blank"> <i class="fa fa-coffee" style="margin-right: 10px;"></i>Buy Me A Coffee!</a>
++    <a href="https://www.buymeacoffee.com/ludeeus" target="_blank"> <i class="fa fa-coffee" style="margin-right: 10px;"></i>Buy Me A Coffee</a>
 +</div>
  </body>
  </html>
