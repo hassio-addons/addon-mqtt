@@ -39,14 +39,23 @@ bashio::log.info 'Adding configuration for MQTT Server...'
   echo "log_type websockets";
   echo "persistence true";
   echo "persistence_location $PERSISTENCE_LOCATION";
-  echo "acl_file $ACL_FILE";
-  echo "password_file $PWFILE";
   echo "listener 1883"
   echo "protocol mqtt"
   echo "listener 1884";
   echo "protocol websockets";
   echo "socket_domain ipv4";
 } > "$CONFIG"
+
+# Allow anonymous auth?
+if bashio::config.true 'allow_anonymous'; then
+  echo "allow_anonymous true" >> "$CONFIG"
+else
+  {
+    echo "allow_anonymous false";
+    echo "acl_file $ACL_FILE";
+    echo "password_file $PWFILE";
+  } >> "$CONFIG"
+fi
 
 # Set SSL configurtations
 if bashio::config.true 'ssl'; then
@@ -63,13 +72,6 @@ if bashio::config.true 'ssl'; then
     echo "certfile /ssl/$(bashio::config 'certfile')";
     echo "keyfile /ssl/$(bashio::config 'keyfile')";
   } >> "$CONFIG"
-fi
-
-# Allow anonymous auth?
-if bashio::config.true 'allow_anonymous'; then
-  echo "allow_anonymous true" >> "$CONFIG"
-else
-  echo "allow_anonymous false" >> "$CONFIG"
 fi
 
 # Set username and password for the broker
