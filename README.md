@@ -47,8 +47,8 @@ comparison to installing any other Hass.io add-on.
 1. Configure the "MQTT Server & Web client" add-on
 1. Check the logs of the "MQTT Server & Web client"
   add-on to see if everything went well.
-1. Click "OPEN WEB UI" to open the MQTT Server & Web client website.
-1. Log in with your Home Assistant user.
+1. Click "OPEN WEB UI" to open the Web client.
+1. Log in with your Home Assistant user (You can skip this if you are using ingress).
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
 first time starting the add-on).
@@ -93,21 +93,11 @@ Example add-on configuration:
 
 ```json
 {
-  "log_level": "info",
+  "ssl": true,
   "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
-  "web": {
-    "enabled": true,
-    "ssl": true
-  },
-  "broker": {
-    "enabled": true,
-    "enable_ws": false,
-    "enable_mqtt": false,
-    "enable_ws_ssl": true,
-    "enable_mqtt_ssl": true,
-    "allow_anonymous": false
-  },
+  "broker": true,
+  "allow_anonymous": false,
   "mqttusers": [
     {
       "username": "MarryPoppins",
@@ -141,6 +131,16 @@ more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
 
+### Option `ssl`
+
+Enables/Disables SSL.  
+When this is enabed it will:
+
+- Run the webclient over HTTPS.
+- Enable port 4883 (MQTT with SSL) on the broker.
+- Enable port 4884 (Websockets with SSL) on the broker.
+
+
 ### Option: `certfile`
 
 The certificate file to use for SSL.
@@ -153,57 +153,14 @@ The private key file to use for SSL.
 
 **Note**: _The file MUST be stored in `/ssl/`, which is the default for Hass.io_
 
-### Option group `web`
+### Option `broker`
 
----
-The following options are for the option group: `web`. These settings
-only apply to the Hivemq MQTT web client.
+This will enable the mosquitto broker that ships with this addon.  
+Setting this to `false` will disable that broker.
 
-This web client can **only** connect to a WebSocket (WS) port, make sure you
-have that enabled on the server (broker) you are connecting to.
+### Option `allow_anonymous`
 
-#### Option `web`: `enable`
-
-Flag to control if this service should be started.
-
-#### Option `web`: `ssl`
-
-Enables/Disables SSL (HTTPS) on the web client of this add-on. Set it `true`
-to enable it, `false` otherwise.
-
-### Option group `broker`
-
----
-The following options are for the option group: `broker`. These settings
-only apply to the Mosquitto broker.
-
-#### Option `broker`: `enable`
-
-Flag to control if this service should be started.
-
-#### Option `broker`: `enable_ws`
-
-Enables the WebSocket protocol on the broker.
-The default WebSocket port is `1884`.
-
-#### Option `broker`: `enable_mqtt`
-
-Enables the MQTT protocol on the broker.
-The default MQTT port is `1883`.
-
-#### Option `broker`: `enable_ws_ssl`
-
-Enables the WebSocket protocol on the broker with SSL support.
-The default WebSocket port with SSL support is `4884`.
-
-#### Option `broker`: `enable_mqtt_ssl`
-
-Enables the MQTT protocol on the broker with SSL support.
-The default MQTT port with SSL support is `4883`.
-
-#### Option `broker`: `allow_anonymous`
-
-Set this to `true` if you need to enable anonymous authentication.
+Set this to `true` if you need to enable anonymous authentication on the broker.
 **NB!: It is NOT a good idea having this enabled**
 
 ### Option group `mqttuser`
@@ -264,7 +221,13 @@ It is possible to embed the web client of this add-on directly into
 Home Assistant, allowing you to access your the web client of this
 add-on through the Home Assistant frontend.
 
-Home Assistant provides the `panel_iframe` component, for these purposes.
+The easiest way to enable this is by toggeling the "Show in Sidebar" switch.
+This will not work if you have disabled ingress.
+
+### Embedding using `panel_iframe`
+
+This will not work if you are using ingress.
+To disable ingress add a port in the Network configuration (example 5713) to the rigth of `80/tcp` in the "disabled" field, after adding that hit "SAVE" then restart.
 
 Example configuration:
 
