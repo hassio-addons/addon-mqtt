@@ -24,9 +24,9 @@ RUN \
     openssl-dev=1.1.1b-r1 \
   \
   && apk add --no-cache \
-    nginx=1.14.2-r0 \
-    lua-resty-http=0.12-r1 \
-    nginx-mod-http-lua=1.14.2-r0 \
+    nginx=1.14.2-r1 \
+    lua-resty-http=0.13-r0 \
+    nginx-mod-http-lua=1.14.2-r1 \
   \
   && git clone --depth=1 \
     https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
