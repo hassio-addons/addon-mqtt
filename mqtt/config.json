@@ -7,6 +7,7 @@
   "webui": "https://[HOST]:[PORT:80]",
   "ingress": true,
   "ingress_port": 1337,
+  "homeassistant": "0.92.0",
   "panel_icon": "mdi:code-brackets",
   "panel_title": "MQTT",
   "startup": "services",
