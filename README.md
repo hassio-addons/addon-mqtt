@@ -133,13 +133,13 @@ you are troubleshooting.
 
 ### Option `ssl`
 
-Enables/Disables SSL.  
+Enables/Disables SSL.
+
 When this is enabed it will:
 
 - Run the webclient over HTTPS.
 - Enable port 4883 (MQTT with SSL) on the broker.
 - Enable port 4884 (Websockets with SSL) on the broker.
-
 
 ### Option: `certfile`
 
@@ -155,7 +155,8 @@ The private key file to use for SSL.
 
 ### Option `broker`
 
-This will enable the mosquitto broker that ships with this addon.  
+This will enable the mosquitto broker that ships with this addon.
+
 Setting this to `false` will disable that broker.
 
 ### Option `allow_anonymous`
@@ -227,7 +228,9 @@ This will not work if you have disabled ingress.
 ### Embedding using `panel_iframe`
 
 This will not work if you are using ingress.
-To disable ingress add a port in the Network configuration (example 5713) to the rigth of `80/tcp` in the "disabled" field, after adding that hit "SAVE" then restart.
+To disable ingress add a port in the Network configuration
+(example 5713) to the rigth of `80/tcp` in the "disabled" field,
+after adding that hit "SAVE" then restart.
 
 Example configuration:
 
