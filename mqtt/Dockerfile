@@ -24,7 +24,7 @@ RUN \
     openssl-dev=1.1.1c-r0 \
   \
   && apk add --no-cache \
-    nginx=1.14.2-r1 \
+    nginx=1.16.1-r0 \
     lua-resty-http=0.13-r0 \
     nginx-mod-http-lua=1.14.2-r1 \
   \
