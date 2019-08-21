@@ -26,7 +26,7 @@ RUN \
   && apk add --no-cache \
     nginx=1.16.1-r0 \
     lua-resty-http=0.13-r0 \
-    nginx-mod-http-lua=1.14.2-r1 \
+    nginx-mod-http-lua=1.16.1-r0 \
   \
   && git clone --depth=1 \
     https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
