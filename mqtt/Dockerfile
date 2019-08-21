@@ -9,9 +9,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /app
 
 # Versions
-    MOSQUITTO='1.6.2'
 ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
     LIBWEBSOCKETS='3.1.0' \
+    MOSQUITTO='1.6.4'
 
 # Setup base
 # hadolint ignore=DL3003
@@ -58,11 +58,7 @@ RUN \
   && make \
     WITH_ADNS=no \
     WITH_DOCS=no \
-    WITH_UUID=no \
     WITH_MEMORY_TRACKING=no \
-    WITH_SHARED_LIBRARIES=no \
-    WITH_SRV=no \
-    WITH_STRIP=yes \
     WITH_TLS_PSK=no \
     WITH_WEBSOCKETS=yes \
     prefix=/usr \
