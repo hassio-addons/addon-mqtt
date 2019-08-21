@@ -18,7 +18,7 @@ ENV HIVEMQ='46338a633eb26bc9f6d8d8ff82f8f2aedc004a57' \
 RUN \
   apk add --no-cache --virtual .build-dependencies \
     git=2.22.0-r0 \
-    cmake=3.13.0-r0 \
+    cmake=3.14.5-r0 \
     build-base=0.5-r1 \
     zlib-dev=1.2.11-r1 \
     openssl-dev=1.1.1b-r1 \
