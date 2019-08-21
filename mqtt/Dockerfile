@@ -21,7 +21,7 @@ RUN \
     cmake=3.14.5-r0 \
     build-base=0.5-r1 \
     zlib-dev=1.2.11-r1 \
-    openssl-dev=1.1.1b-r1 \
+    openssl-dev=1.1.1c-r0 \
   \
   && apk add --no-cache \
     nginx=1.14.2-r1 \
