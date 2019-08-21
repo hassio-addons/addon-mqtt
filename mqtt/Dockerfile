@@ -9,9 +9,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /app
 
 # Versions
-    LIBWEBSOCKETS='2.4.2' \
     MOSQUITTO='1.6.2'
 ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
+    LIBWEBSOCKETS='3.1.0' \
 
 # Setup base
 # hadolint ignore=DL3003
