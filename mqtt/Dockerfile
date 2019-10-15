@@ -11,7 +11,7 @@ WORKDIR /app
 # Versions
 ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
     LIBWEBSOCKETS='3.1.0' \
-    MOSQUITTO='1.6.4'
+    MOSQUITTO='1.6.7'
 
 # Setup base
 # hadolint ignore=DL3003
