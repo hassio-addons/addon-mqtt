@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base:4.1.1
+ARG BUILD_FROM=hassioaddons/base:7.0.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -17,16 +17,16 @@ ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
 # hadolint ignore=DL3003
 RUN \
   apk add --no-cache --virtual .build-dependencies \
-    git=2.22.0-r0 \
-    cmake=3.14.5-r0 \
+    git=2.24.1-r0 \
+    cmake=3.15.5-r0 \
     build-base=0.5-r1 \
-    zlib-dev=1.2.11-r1 \
-    openssl-dev=1.1.1c-r0 \
+    zlib-dev=1.2.11-r3 \
+    openssl-dev=1.1.1d-r3 \
   \
   && apk add --no-cache \
-    nginx=1.16.1-r0 \
-    lua-resty-http=0.13-r0 \
-    nginx-mod-http-lua=1.16.1-r0 \
+    nginx=1.16.1-r6 \
+    lua-resty-http=0.15-r0 \
+    nginx-mod-http-lua=1.16.1-r6 \
   \
   && git clone --depth=1 \
     https://github.com/hivemq/hivemq-mqtt-web-client.git /app \
