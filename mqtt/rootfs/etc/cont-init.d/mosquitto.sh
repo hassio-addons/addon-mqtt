@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Community Hass.io Add-ons: MQTT Server & Web client
+# Home Assistant Community Add-on: MQTT Server & Web client
 # Configures Hivemq for use with MQTT Server & Web client
 # ==============================================================================
 readonly ACL_FILE='/opt/acl'

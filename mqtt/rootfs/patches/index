@@ -21,7 +21,7 @@
 -        <a href="http://www.hivemq.com"><img id="headerlogo" src="assets/logo.png"></a>
 -        <span id="headertitle">Websockets Client Showcase</span>
 +        <a href="/"><img id="headerlogo" src="assets/logo.png"></a>
-+        <span id="headertitle" style="padding: 8px;">MQTT Server and web client - Community Hass.io Add-on for Home Assistant</span>
++        <span id="headertitle" style="padding: 8px;">MQTT Server and web client - Home Assistant Community Add-ons</span>
      </div>
  </div>
  <div id="content" class="row">

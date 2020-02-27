@@ -1,6 +1,6 @@
 #!/usr/bin/execlineb -S0
 # ==============================================================================
-# Community Hass.io Add-ons: MQTT Server & Web client
+# Home Assistant Community Add-on: MQTT Server & Web client
 # Take down the S6 supervision tree when NGINX fails
 # ==============================================================================
 if -n { s6-test $# -ne 0 }

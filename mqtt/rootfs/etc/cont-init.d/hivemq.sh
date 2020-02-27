@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Community Hass.io Add-ons: MQTT Server & Web client
+# Home Assistant Community Add-on: MQTT Server & Web client
 # This files adds some patches to the add-on
 # ==============================================================================
 readonly CONFIG='/app/config.js'
