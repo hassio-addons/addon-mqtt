@@ -17,6 +17,15 @@ Mosquitto MQTT Server bundled with Hivemq's web client.
 
 ![sample][screenshot]
 
+## Deprecation warning
+
+**This add-on is in a deprecated state!**
+
+This add-on is now deprecated. We highly recommend on switching to the
+official Home Assistant Mosquitto add-on as an alternative.
+
+This add-on will soon be removed from the add-on store.
+
 ## About
 
 This add-on combines the power of [Hivemq][hivemq]'s
@@ -356,7 +365,7 @@ SOFTWARE.
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
 [microbadger]: https://microbadger.com/images/hassioaddons/mqtt
 [mosquitto]: https://mosquitto.org/
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-%20!%20DEPRECATED%20%20%20!-ff0000.svg
 [pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/mqtt.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-mqtt.svg
